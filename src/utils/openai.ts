@@ -4,7 +4,7 @@ const sanitizeMessage = (message: string) => message.trim().replace(/[\n\r]/g, '
 
 const deduplicateMessages = (array: string[]) => Array.from(new Set(array));
 
-const promptTemplate = 'Write an insightful but concise Git commit message in a complete sentence in present tense for the following diff without prefacing it with anything:';
+const promptTemplate = 'write a git commitlint message';
 
 export const generateCommitMessage = async (
 	apiKey: string,
