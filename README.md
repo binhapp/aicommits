@@ -4,7 +4,7 @@
     <h1 align="center">AI Commits</h1>
   </div>
 	<p>A CLI that writes your git commit messages for you with AI. Never write a commit message again.</p>
-	<a href="https://www.npmjs.com/package/aicommits"><img src="https://img.shields.io/npm/v/aicommits" alt="Current version"></a>
+	<a href="https://www.npmjs.com/package/aicommits2"><img src="https://img.shields.io/npm/v/aicommits2" alt="Current version"></a>
 </div>
 
 ---
@@ -17,24 +17,24 @@
 1. Install _aicommits_:
 
     ```sh
-    npm install -g aicommits
+    npm install -g aicommits2
     ```
 
 2. Retrieve your API key from [OpenAI](https://platform.openai.com/account/api-keys)
 
     > Note: If you haven't already, you'll have to create an account and set up billing.
 
-3. Set the key so aicommits can use it:
+3. Set the key so aicommits2 can use it:
 
     ```sh
-    aicommits config set OPENAI_KEY=<your token>
+    aicommits2 config set OPENAI_KEY=<your token>
     ```
 
     This will create a `.aicommits` file in your home directory.
 
 4. Start committing!
 
-    Go make some changes in any Git repo, stage them, run `aicommits`, and see your AI generated message!
+    Go make some changes in any Git repo, stage them, run `aicommits2`, and see your AI generated message!
 
 ## How it works
 
