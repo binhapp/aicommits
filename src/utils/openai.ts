@@ -1,16 +1,18 @@
 import { Configuration, OpenAIApi } from 'openai';
+import { getConfig } from './config.js';
 
 const sanitizeMessage = (message: string) => message.trim().replace(/[\n\r]/g, '').replace(/(\w)\.$/, '$1');
 
 const deduplicateMessages = (array: string[]) => Array.from(new Set(array));
 
-const promptTemplate = 'create a git comment following commitlint rules';
 
 export const generateCommitMessage = async (
 	apiKey: string,
 	diff: string,
 	completions: number,
 ) => {
+	const { PROMPT } = await getConfig();
+	const promptTemplate = PROMPT || 'create a git comment following commitlint rules';
 	const prompt = `${promptTemplate}\n${diff}`;
 
 	// Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
@@ -21,7 +23,7 @@ export const generateCommitMessage = async (
 	const openai = new OpenAIApi(new Configuration({ apiKey }));
 	try {
 		const completion = await openai.createCompletion({
-			model: 'text-davinci-003',
+			model: 'code-davinci-002',
 			prompt,
 			temperature: 0.7,
 			top_p: 1,

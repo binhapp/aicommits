@@ -22,6 +22,11 @@ const configParsers = {
 
 		return key;
 	},
+	PROMPT(key: string) {
+		parseAssert('OPENAI_KEY', key, 'Cannot be empty');
+
+		return key;
+	},
 	generate(key: string) {
 		parseAssert('generate', key, 'Cannot be empty');
 		parseAssert('generate', /^\d+$/.test(key), 'Must be an integer');
