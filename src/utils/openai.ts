@@ -5,7 +5,6 @@ const sanitizeMessage = (message: string) => message.trim().replace(/[\n\r]/g, '
 
 const deduplicateMessages = (array: string[]) => Array.from(new Set(array));
 
-
 export const generateCommitMessage = async (
 	apiKey: string,
 	diff: string,
@@ -23,7 +22,7 @@ export const generateCommitMessage = async (
 	const openai = new OpenAIApi(new Configuration({ apiKey }));
 	try {
 		const completion = await openai.createCompletion({
-			model: 'code-davinci-002',
+			model: 'text-davinci-003',
 			prompt,
 			temperature: 0.7,
 			top_p: 1,
